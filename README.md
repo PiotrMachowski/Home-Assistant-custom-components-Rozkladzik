@@ -1,4 +1,4 @@
-# Rozkładzik sensor
+﻿# Rozkładzik sensor
 
 This sensor uses unofficial API to get data from [*Rozkładzik.pl*](https://www.rozkladzik.pl) and provide information about departures for chosen stop.
 
@@ -32,10 +32,10 @@ sensor:
 
 ## Instalation
 
-Download [*sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/manifest.json) to `config/custom_compoments/rozkladzik` directory:
+Download [*sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/manifest.json) to `config/custom_components/rozkladzik` directory:
 ```bash
-mkdir -p custom_compoments/rozkladzik
-cd custom_compoments/rozkladzik
+mkdir -p custom_components/rozkladzik
+cd custom_components/rozkladzik
 wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/sensor.py
 wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/manifest.json
 ```
