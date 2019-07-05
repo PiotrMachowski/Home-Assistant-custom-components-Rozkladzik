@@ -47,10 +47,9 @@ This sensor provide `html` attribute which can be used in [*Lovelace HTML card*]
 ```yaml
 - type: custom:html-card
   title: 'Rozkładzik'
-  data:
-    - html: '<big><center>Departures</center></big>'
-    - entity_id: sensor.rozkladzik_wroclaw_1709
-      attribute: html
+  content: |
+    <big><center>Departures</center></big>
+    [[ sensor.rozkladzik_wroclaw_1709.attributes.html ]]
 ```
 
 ## FAQ
