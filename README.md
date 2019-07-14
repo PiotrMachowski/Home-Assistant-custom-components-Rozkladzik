@@ -32,12 +32,12 @@ sensor:
 
 ## Instalation
 
-Download [*sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/manifest.json) to `config/custom_components/rozkladzik` directory:
+Download [*sensor.py*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/custom_components/rozkladzik/sensor.py) and [*manifest.json*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/custom_components/rozkladzik/manifest.json) to `config/custom_components/rozkladzik` directory:
 ```bash
 mkdir -p custom_components/rozkladzik
 cd custom_components/rozkladzik
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/sensor.py
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/manifest.json
+wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/custom_components/rozkladzik/sensor.py
+wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladzik/raw/master/custom_components/rozkladzik/manifest.json
 ```
 
 
