@@ -43,15 +43,25 @@ wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladz
 
 ## Hints
 
-This sensor provide `html` attribute which can be used in [*Lovelace HTML card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-card):
-```yaml
-- type: custom:html-card
-  title: 'Rozkładzik'
-  content: |
-    <big><center>Departures</center></big>
-    [[ sensor.rozkladzik_wroclaw_1709.attributes.html ]]
-```
-
+* This sensor provides `html` attribute which can be used in [*HTML card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-card) or [*HTML Template card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-Template-card):
+  * HTML Card:
+    ```yaml
+    - type: custom:html-card
+      title: 'Rozkładzik'
+      content: |
+        <big><center>Departures</center></big>
+        [[ sensor.rozkladzik_wroclaw_1709.attributes.html ]]
+    ```
+  * HTML Template Card:
+    ```yaml
+    - type: custom:html-template-card
+      title: 'Rozkładzik'
+      ignore_line_breaks: true
+      content: |
+        <big><center>Departures</center></big>
+        {{ state_attr('sensor.rozkladzik_wroclaw_1709','html') }}
+    ```
+  * This integration is available in [*HACS*](https://github.com/custom-components/hacs/).
 ## FAQ
 
 * **How to get values for configuration parameters?**
