@@ -1,4 +1,6 @@
-﻿# Rozkładzik sensor
+# Rozkładzik sensor
+ 
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs) 
 
 This sensor uses unofficial API to get data from [*Rozkładzik.pl*](https://www.rozkladzik.pl) and provide information about departures for chosen stop.
 
