@@ -74,3 +74,5 @@ wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladz
   - Click on chosen stop and in network tab look for call to `https://www.rozkladzik.pl/<name_of_city>/timetable.txt?...` URL
   - Value for `city` comes from `<name_of_city>` path fragment.
   - Value for `id` comes from query string parameter `t`.
+
+<a href="https://www.buymeacoffee.com/PiotrMachowski" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
