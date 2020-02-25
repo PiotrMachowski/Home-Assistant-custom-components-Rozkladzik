@@ -20,6 +20,8 @@ This sensor uses unofficial API to get data from [*Rozkładzik.pl*](https://www.
 | `id` | ID of stop |
 | `name` | Name of stop |
 | `stops_group_mode` | Enables stops group mode. Possible values: `true`, `false`. |
+| `lines` | `list` | `False` | all available | List of monitored lines. |
+| `directions` | `list` | `False` | all available | List of monitored directions. |
 
 ## Example usage
 
@@ -30,9 +32,13 @@ sensor:
     stops:
       - id: 1281
         name: 'Plac Grunwaldzki'
+        directions:
+          - "Reja"
       - id: 94
         name: 'Rynek'
         stops_group_mode: true
+        lines:
+          - "33"
 ```
 
 ## Installation
