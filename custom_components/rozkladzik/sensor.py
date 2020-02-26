@@ -99,7 +99,7 @@ class RozkladzikSensor(Entity):
     def update(self):
         now = datetime.datetime.now()
         r_time = now.hour * 60 + now.minute
-        if self._should_update(now):
+        if self._should_update(r_time):
             url_template = 'https://www.rozkladzik.pl/{}/timetable.txt?c=tsa&t={}&day={}&time={}'
             if self._group_mode:
                 url_template = 'https://www.rozkladzik.pl/{}/timetable.txt?c=bsa&b={}&day={}&time={}'
