@@ -74,9 +74,12 @@ class RozkladzikSensor(Entity):
     @property
     def state(self):
         if self._departures_number is not None and self._departures_number > 0:
-            dep = self._departures_ordered[0]
-            return '{} kier. {}: {} ({}m)'.format(dep[0], dep[1], dep[2], dep[3])
+            return RozkladzikSensor.departure_to_str(self._departures_ordered[0])
         return None
+
+    @staticmethod
+    def departure_to_str(departure):
+        return '{} kier. {}: {} ({}m)'.format(departure[0], departure[1], departure[2], departure[3])
 
     @property
     def unit_of_measurement(self):
@@ -87,7 +90,9 @@ class RozkladzikSensor(Entity):
         attr = dict()
         if self._departures_ordered is not None:
             attr['list'] = self._departures_ordered
-            attr['html'] = self.get_html()
+            attr['html_timetable'] = self.get_html_timetable()
+            attr['html'] = attr['html_timetable']
+            attr['html_departures'] = self.get_html_departures()
             if self._departures_number > 0:
                 dep = self._departures_ordered[0]
                 attr['line'] = dep[0]
@@ -141,7 +146,7 @@ class RozkladzikSensor(Entity):
         self._departures_ordered.sort(key=lambda e: e[3])
         self._departures_number = len(self._departures_ordered)
 
-    def get_html(self):
+    def get_html_timetable(self):
         html = '<table width="100%" border=1 style="border: 1px black solid; border-collapse: collapse;">\n'
         lines = list(self._departures_by_line.keys())
         lines.sort()
@@ -156,6 +161,14 @@ class RozkladzikSensor(Entity):
                 html = html + '<td style="text-align: right; padding: 4px">{}</td></tr>\n'.format(departures)
         if len(lines) == 0:
             html = html + '<tr><td style="text-align: center; padding: 4px">Brak połączeń</td>'
+        html = html + '</table>'
+        return html
+
+    def get_html_departures(self):
+        html = '<table width="100%" border=1 style="border: 1px black solid; border-collapse: collapse;">\n'
+        for departure in self._departures_ordered:
+            html = html + '<tr><td style="text-align: center; padding: 4px">{}</td></tr>\n'.format(
+                RozkladzikSensor.departure_to_str(departure))
         html = html + '</table>'
         return html
 

@@ -54,14 +54,16 @@ wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladz
 
 ## Hints
 
-* This sensor provides `html` attribute which can be used in [*HTML card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-card) or [*HTML Template card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-Template-card):
+* This sensor provides attributes which can be used in [*HTML card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-card) or [*HTML Template card*](https://github.com/PiotrMachowski/Home-Assistant-Lovelace-HTML-Template-card): `html_timetable`, `html_departures`
   * HTML Card:
     ```yaml
     - type: custom:html-card
       title: 'Rozkładzik'
       content: |
         <big><center>Departures</center></big>
-        [[ sensor.rozkladzik_wroclaw_1709.attributes.html ]]
+        [[ sensor.rozkladzik_wroclaw_1709.attributes.html_departures ]]
+        <big><center>Timetable</center></big>
+        [[ sensor.rozkladzik_wroclaw_1709.attributes.html_timetable ]]
     ```
   * HTML Template Card:
     ```yaml
@@ -70,7 +72,9 @@ wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Rozkladz
       ignore_line_breaks: true
       content: |
         <big><center>Departures</center></big>
-        {{ state_attr('sensor.rozkladzik_wroclaw_1709','html') }}
+        {{ state_attr('sensor.rozkladzik_wroclaw_1709','html_departures') }}
+        <big><center>Timetable</center></big>
+        {{ state_attr('sensor.rozkladzik_wroclaw_1709','html_timetable') }}
     ```
   * This integration is available in [*HACS*](https://github.com/custom-components/hacs/).
 ## FAQ
