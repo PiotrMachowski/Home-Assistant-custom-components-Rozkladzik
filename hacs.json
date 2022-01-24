@@ -1,5 +1,8 @@
 {
   "name": "Rozkładzik sensor",
   "domains": ["sensor"],
-  "country": "PL"
+  "country": "PL",
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "rozkladzik.zip"
 }
