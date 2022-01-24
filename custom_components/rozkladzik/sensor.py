@@ -86,7 +86,7 @@ class RozkladzikSensor(Entity):
         return None
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
         attr = dict()
         if self._departures_ordered is not None:
             attr['list'] = self._departures_ordered
