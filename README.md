@@ -89,6 +89,16 @@ rm rozkladzik.zip
         [[ sensor.rozkladzik_wroclaw_1709.attributes.html_departures ]]
         <big><center>Timetable</center></big>
         [[ sensor.rozkladzik_wroclaw_1709.attributes.html_timetable ]]
+        <style>
+          table.departures, table.timeteble {
+            border: 1px black solid; border-collapse: collapse;
+          }
+          
+          table.departures tr td, table.timeteble tr td{
+            text-align: center; padding: 4px
+          }
+        </style>  
+
     ```
   * HTML Template Card:
     ```yaml
@@ -100,6 +110,51 @@ rm rozkladzik.zip
         {{ state_attr('sensor.rozkladzik_wroclaw_1709','html_departures') }}
         <big><center>Timetable</center></big>
         {{ state_attr('sensor.rozkladzik_wroclaw_1709','html_timetable') }}
+        <style>
+
+          table.departures, table.timeteble {
+            border: 0 transparent;
+          }
+
+          span.kier, span.direction  {
+            display: none;
+          }
+
+          tr.odd-departure, tr.odd-route  {
+            background: rgba(0,0,0,0.2);
+          }
+
+          span.departures  {
+            width: 100%;
+          }
+          
+          span {
+            color: var(--primary-text-color);
+            display: inline-block;
+            font-size: 22px;
+            line-height: 0.5;
+            font-weight: 300;
+            padding: 8px 8px 0px 8px;
+            text-align: right;
+            width:30%;
+          }
+          
+          span.time {
+          }
+          
+          span.route { 
+            width:60px;
+            font-weight:600;
+            color: var(--secondary-text-color);
+          }
+          
+          span.timeteble-route { 
+            width:60px;
+            font-weight:600;
+            color: var(--secondary-text-color);
+          }
+        </style>  
+
     ```
   * This integration is available in [*HACS*](https://github.com/custom-components/hacs/).
 ## FAQ
