@@ -79,7 +79,7 @@ class RozkladzikSensor(Entity):
 
     @staticmethod
     def departure_to_str(departure):
-        return '{} kier. {}: {} ({}m)'.format(departure[0], departure[1], departure[2], departure[3])
+        return '<span class="route">{}</span> <span class="kier">kier.</span> <span class="direction">{}:</span> <span class="time">{}</span> <span class="minutes"> {}m </span>'.format(departure[0], departure[1], departure[2], departure[3])
 
     @property
     def unit_of_measurement(self):
@@ -147,27 +147,41 @@ class RozkladzikSensor(Entity):
         self._departures_number = len(self._departures_ordered)
 
     def get_html_timetable(self):
-        html = '<table width="100%" border=1 style="border: 1px black solid; border-collapse: collapse;">\n'
+        html = '<table width="100%" border=1 class="timeteble">\n'
         lines = list(self._departures_by_line.keys())
         lines.sort()
+        departLine = 0;
+        even = "even"
         for line in lines:
             directions = list(self._departures_by_line[line].keys())
             directions.sort()
             for direction in directions:
                 if len(direction) == 0:
                     continue
-                html = html + '<tr><td style="text-align: center; padding: 4px"><big>{}, kier. {}</big></td>'.format(line, direction)
+                if even == "even":
+                    even = "odd"
+                else:
+                    even = "even"
+                departLine = departLine + 1
+                html = html + '<tr class="route-{} {}-route"><td class="timeteble-route"><span class="timeteble-route">{}</span><span class="kier">, kier.</span> <span class="direction">{}</span></td>'.format(departLine, even, line, direction)
                 departures = ', '.join(map(lambda x: x[0], self._departures_by_line[line][direction]))
-                html = html + '<td style="text-align: right; padding: 4px">{}</td></tr>\n'.format(departures)
+                html = html + '<td class="timetable-departures"><span class="departures">{}</span></td></tr>\n'.format(departures)
         if len(lines) == 0:
             html = html + '<tr><td style="text-align: center; padding: 4px">Brak połączeń</td>'
         html = html + '</table>'
         return html
 
     def get_html_departures(self):
-        html = '<table width="100%" border=1 style="border: 1px black solid; border-collapse: collapse;">\n'
+        html = '<table width="100%" border=1 class="departures">\n'
+        departLine = 0;
+        even = "even"
         for departure in self._departures_ordered:
-            html = html + '<tr><td style="text-align: center; padding: 4px">{}</td></tr>\n'.format(
+            departLine = departLine + 1
+            if even == "even":
+                even = "odd"
+            else:
+                even = "even"
+            html = html + '<tr class="departure-{} {}-departure"><td class="departure">{}</td></tr>\n'.format(departLine, even,
                 RozkladzikSensor.departure_to_str(departure))
         html = html + '</table>'
         return html
